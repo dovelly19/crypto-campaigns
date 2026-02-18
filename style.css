@@ -525,6 +525,11 @@ a {
     gap: 8px;
 }
 
+.banner-widget img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Ranking Widget */
 .ranking-list {
     list-style: none;
