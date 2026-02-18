@@ -525,9 +525,24 @@ a {
     gap: 8px;
 }
 
+/* Banner Widget Specifics */
+.banner-widget {
+    padding: 0 !important;
+    /* Remove padding allows 300px to fit */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: transparent !important;
+    /* Remove white bg if needed */
+    border: none !important;
+    /* Remove border if needed */
+}
+
 .banner-widget img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 /* Ranking Widget */
