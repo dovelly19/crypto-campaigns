@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - CryptoCampaigns</title>
+    <meta property="og:title" content="お問い合わせ">
+    <meta property="og:image" content="images/ogp.png">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪙</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .btn-mail {
+            display: inline-block;
+            background: var(--text-main);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .btn-mail:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-mail:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo"><i class="fa-solid fa-coins"></i> CryptoCampaigns</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="contact-container">
+            <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+            <h1>お問い合わせ</h1>
+            <p style="margin-bottom: 30px; color: var(--text-sub);">
+                当サイトに関するご質問、ご意見、情報の誤りなどがございましたら、<br>
+                以下のフォームよりお気軽にお問い合わせください。
+            </p>
+
+            <form id="contactForm" onsubmit="submitForm(event)">
+                <div style="text-align: left; margin-bottom: 20px;">
+                    <label
+                        style="display:block; margin-bottom:8px; font-weight:bold; color:var(--text-main);">お名前</label>
+                    <input type="text" name="name" required placeholder="例：山田 太郎"
+                        style="width:100%; padding:12px; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;">
+                </div>
+
+                <div style="text-align: left; margin-bottom: 20px;">
+                    <label
+                        style="display:block; margin-bottom:8px; font-weight:bold; color:var(--text-main);">メールアドレス</label>
+                    <input type="email" name="email" required placeholder="例：info@example.com"
+                        style="width:100%; padding:12px; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;">
+                </div>
+
+                <div style="text-align: left; margin-bottom: 20px;">
+                    <label
+                        style="display:block; margin-bottom:8px; font-weight:bold; color:var(--text-main);">件名</label>
+                    <input type="text" name="subject" placeholder="例：記事の内容について"
+                        style="width:100%; padding:12px; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;">
+                </div>
+
+                <div style="text-align: left; margin-bottom: 30px;">
+                    <label
+                        style="display:block; margin-bottom:8px; font-weight:bold; color:var(--text-main);">お問い合わせ内容</label>
+                    <textarea name="message" required rows="6" placeholder="ここにお問い合わせ内容をご記入ください"
+                        style="width:100%; padding:12px; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem; resize:vertical;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-mail"
+                    style="border:none; cursor:pointer; width:100%; font-size:1.1rem;">
+                    <i class="fa-solid fa-paper-plane"></i> 送信する
+                </button>
+            </form>
+
+            <div id="successMessage"
+                style="display:none; margin-top:30px; padding:20px; background:#dcfce7; color:#166534; border-radius:8px;">
+                <div style="font-size: 2rem; margin-bottom: 10px;"><i class="fa-solid fa-check-circle"></i></div>
+                <strong style="font-size: 1.2rem;">送信完了しました</strong><br>
+                <p style="margin-top: 10px;">お問い合わせありがとうございます。<br>確認次第、担当者よりご連絡させていただきます。</p>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a href="index.html" style="color: var(--text-sub); font-size: 0.9rem;">トップページに戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background:white; border-top:1px solid var(--border); margin-top:60px; padding:60px 0 20px;">
+        <div class="container" style="text-align:center;">
+            <p style="font-size:0.75rem; color:var(--text-sub);">&copy; 2026 CryptoCampaigns. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            // UI Feedback
+            const btn = event.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 送信中...';
+            btn.disabled = true;
+
+            // Simulate network request
+            setTimeout(() => {
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Optional: Console log to show 'functionality'
+                const formData = new FormData(event.target);
+                console.log('Form Submitted:', Object.fromEntries(formData));
+            }, 1500);
+        }
+    </script>
+
+</body>
+
+</html>

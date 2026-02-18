@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>詳細 - キャンペーン情報</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Detail Page Specific Styles */
+        .detail-hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #f9fafb, #fff);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .detail-hero-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 2rem;
+            border: 2px solid transparent;
+        }
+
+        .detail-exchange-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .detail-bonus {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 16px 0;
+            color: var(--accent);
+        }
+
+        .detail-cta-area {
+            margin-top: 24px;
+        }
+
+        .detail-btn-apply {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .detail-btn-apply:hover {
+            transform: translateY(-2px);
+        }
+
+        .breadcrumb {
+            padding: 16px 0;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .breadcrumb a {
+            color: var(--text-sub);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .section-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        /* Merits / Demerits */
+        .review-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .merit-box,
+        .demerit-box {
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .merit-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+        }
+
+        .demerit-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
+
+        .merit-title {
+            color: #166534;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .demerit-title {
+            color: #991b1b;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .merit-list,
+        .demerit-list {
+            padding-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        .merit-list li {
+            margin-bottom: 6px;
+            color: #15803d;
+        }
+
+        .demerit-list li {
+            margin-bottom: 6px;
+            color: #b91c1c;
+        }
+
+        @media (max-width: 768px) {
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-layer-group"></i> CryptoCampaigns
+            </a>
+            <span id="last-updated-date" class="last-updated">...</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">ホーム</a> &gt; <span id="bc-name">...</span>
+        </div>
+
+        <div id="detail-content">
+            <!-- Loading or Content -->
+            <p style="text-align: center; padding: 40px;">読み込み中...</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple logic to parse URL param and render data
+        async function loadDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const container = document.getElementById('detail-content');
+
+            if (!id) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            try {
+                const response = await fetch('campaigns.json');
+                const campaigns = await response.json();
+                const data = campaigns.find(c => c.id === id);
+
+                if (!data) {
+                    container.innerHTML = '<p>データが見つかりません</p>';
+                    return;
+                }
+
+                document.title = `${data.name} キャンペーン詳細 - CryptoCampaigns`;
+                document.getElementById('bc-name').innerText = data.name;
+
+                // Render
+                const meritsHtml = data.merits ? data.merits.map(m => `<li>${m}</li>`).join('') : '';
+                const demeritsHtml = data.demerits ? data.demerits.map(d => `<li>${d}</li>`).join('') : '';
+                const stepsHtml = data.steps ? data.steps.map((s, i) => `
+                    <div class="step-item">
+                        <span class="step-num">${i + 1}</span>
+                        <div style="flex:1">
+                            <h4 style="font-size:1rem; margin-bottom:4px;">手順 ${i + 1}</h4>
+                            <p class="step-text">${s}</p>
+                        </div>
+                    </div>
+                `).join('') : '';
+
+                // Copy code section
+                let referralSection = '';
+                if (data.referralCode) {
+                    referralSection = `
+                        <div class="section-box" style="text-align:center; background:#f0f9ff; border-color:#bae6fd;">
+                            <h3 style="font-size:1.1rem; margin-bottom:12px;">紹介コード</h3>
+                            <div style="display:flex; justify-content:center; gap:8px; max-width:300px; margin:0 auto;">
+                                <div class="code-display" id="detail-code" style="background:white; font-size:1.2rem; padding:8px 16px;">${data.referralCode}</div>
+                                <button class="btn-copy-small" onclick="navigator.clipboard.writeText('${data.referralCode}').then(()=>alert('コピーしました'))">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Hero / Banner Logic
+                let heroHtml = '';
+                if (data.affiliateBannerHtml) {
+                    // If raw HTML (iframe, script, etc) is provided, use it directly
+                    // Add a wrapper to ensure centered and responsive
+                    heroHtml = `<div class="banner-wrapper" style="text-align:center; margin-bottom:20px;">${data.affiliateBannerHtml}</div>`;
+                } else if (data.heroImage) {
+                    // Fallback to hero image if no banner code
+                    heroHtml = `<img src="${data.heroImage}" alt="${data.name} Campaign" style="width:100%; max-width:600px; border-radius:12px; margin-bottom:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">`;
+                }
+
+                container.innerHTML = `
+                    <div class="detail-hero">
+                        ${heroHtml}
+                        <div class="detail-exchange-name">${data.name}</div>
+                        <div class="detail-hero-logo" style="color:${data.color}; border-color:${data.color}">
+                            <i class="${data.iconClass} fa-2x"></i>
+                        </div>
+                        <p style="color:#666;">${data.description}</p>
+                        <div class="detail-bonus" style="color:${data.color}">${data.bonusAmount}<span style="font-size:1rem; color:#666; font-weight:normal;">${data.unit}</span></div>
+                        <div class="detail-cta-area">
+                            <a href="${data.affiliateLink}" class="detail-btn-apply" style="background:${data.color}">今すぐキャンペーンに参加 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    ${referralSection}
+
+                    <div class="section-box">
+                        <div class="section-title"><i class="fa-solid fa-list-check" style="color:${data.color}"></i> ボーナス獲得手順</div>
+                        <div class="steps-container">
+                            ${stepsHtml}
+                        </div>
+                        <div class="pro-tip-box" style="margin-top:20px;">
+                            <i class="fa-regular fa-lightbulb"></i> <strong>Pro Tip:</strong> ${data.proTip}
+                        </div>
+                    </div>
+
+                    <div class="section-box">
+                        <div class="section-title"><i class="fa-solid fa-scale-balanced" style="color:${data.color}"></i> メリット・デメリット</div>
+                        <div class="review-grid">
+                            <div class="merit-box">
+                                <div class="merit-title"><i class="fa-regular fa-thumbs-up"></i> ここが良い！</div>
+                                <ul class="merit-list">${meritsHtml}</ul>
+                            </div>
+                            <div class="demerit-box">
+                                <div class="demerit-title"><i class="fa-regular fa-thumbs-down"></i> ここは注意</div>
+                                <ul class="demerit-list">${demeritsHtml}</ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-box">
+                        <div class="section-title"><i class="fa-solid fa-file-contract" style="color:${data.color}"></i> キャンペーン詳細条件</div>
+                        <ul style="padding-left:20px; color:#4b5563;">
+                            ${data.conditions.map(c => `<li>${c}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+            } catch (e) {
+                console.error(e);
+            }
+        }
+        loadDetail();
+    </script>
+</body>
+
+</html>

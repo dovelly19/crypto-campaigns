@@ -1,0 +1,218 @@
+[
+    {
+        "id": "coincheck",
+        "name": "Coincheck",
+        "type": "domestic",
+        "color": "#00d9bc",
+        "iconClass": "fa-solid fa-check",
+        "heroImage": "https://placehold.co/600x300/00d9bc/ffffff?text=Coincheck+Banner&font=roboto",
+        "affiliateBannerHtml": "",
+        "bonusAmount": "2,500",
+        "unit": "円相当 BTC",
+        "description": "アプリダウンロード数No.1！迷ったらまずはここ。",
+        "proTip": "家族や友人を招待すると、お互いにビットコインがもらえます。",
+        "merits": [
+            "アプリが直感的で初心者でも迷わない",
+            "マネックスグループ傘下の安心感",
+            "電気・ガス支払いでビットコインが貯まる"
+        ],
+        "demerits": [
+            "販売所のスプレッド（手数料）が広め",
+            "取引所（板取引）の対応通貨が少なめ"
+        ],
+        "steps": [
+            "紹介リンクから公式サイトへアクセス",
+            "会員登録・本人確認を完了する",
+            "本人確認完了で付与（入金不要）"
+        ],
+        "conditions": [
+            "本人確認完了 (eKYC)",
+            "紹介URLからの登録必須"
+        ],
+        "affiliateLink": "https://campaign.coincheck.com/invitation?code=zOsixKM",
+        "referralCode": "zOsixKM",
+        "isRecommended": true,
+        "tag": "国内定番",
+        "lastChecked": "2026-02-18T09:02:08.546Z"
+    },
+    {
+        "id": "bitflyer",
+        "name": "bitFlyer",
+        "type": "domestic",
+        "color": "#e40336",
+        "iconClass": "fa-brands fa-fly",
+        "heroImage": "https://placehold.co/600x300/e40336/ffffff?text=bitFlyer+Banner&font=roboto",
+        "affiliateBannerHtml": "",
+        "bonusAmount": "1,500",
+        "unit": "円相当 BTC",
+        "description": "ビットコイン取引量6年連続No.1。安心と信頼の実績。",
+        "proTip": "Tポイントをビットコインに交換できる機能もあります。",
+        "merits": [
+            "ビットコイン取引量が国内トップクラスで約定しやすい",
+            "Tポイントを使って投資ができる",
+            "セキュリティ運用実績が長い"
+        ],
+        "demerits": [
+            "出金手数料がやや高め",
+            "アプリのProモードは初心者には少し複雑"
+        ],
+        "steps": [
+            "紹介URLから口座開設ページへ",
+            "メールアドレス登録・パスワード設定",
+            "本人確認資料（免許証など）を提出して完了"
+        ],
+        "conditions": [
+            "紹介URLから口座開設",
+            "本人確認完了"
+        ],
+        "affiliateLink": "https://bitflyer.com/invitation?id=llvymwjm&lang=ja-JP",
+        "referralCode": "llvymwjm",
+        "isRecommended": true,
+        "tag": "国内大手",
+        "lastChecked": "2026-02-18T09:02:09.758Z"
+    },
+    {
+        "id": "bitpoint",
+        "name": "BITPOINT",
+        "type": "domestic",
+        "color": "#2c7ae0",
+        "iconClass": "fa-solid fa-gem",
+        "heroImage": "https://placehold.co/600x300/2c7ae0/ffffff?text=BITPOINT+Banner&font=roboto",
+        "affiliateBannerHtml": "",
+        "bonusAmount": "3,500",
+        "unit": "円相当 (時期による)",
+        "description": "各種手数料が無料。マイナーなアルトコインの取り扱いが豊富。",
+        "proTip": "口座開設だけでボーナスがもらえるキャンペーンが多いのが特徴。",
+        "merits": [
+            "各種手数料が無料でコストを抑えられる",
+            "マイナーなアルトコインの取り扱いが早い",
+            "アプリがシンプルで使いやすい"
+        ],
+        "demerits": [
+            "流動性が低い通貨がある",
+            "スプレッドが広がりやすいタイミングがある"
+        ],
+        "steps": [
+            "キャンペーンページから口座開設を申し込み",
+            "紹介コード入力欄にコードを入力",
+            "本人確認完了後、アプリでログイン"
+        ],
+        "conditions": [
+            "紹介コードを利用して口座開設",
+            "アプリでの取引など"
+        ],
+        "affiliateLink": "https://www.bitpoint.co.jp/lp/referral/?invitationCd=BDCISYAASD&afid=PaAKUxGd&argument=E4y65Xyx&dmai=a60e69a5d44eea",
+        "referralCode": "BDCISYAASD",
+        "isRecommended": true,
+        "tag": "手数料無料",
+        "lastChecked": "2026-02-18T09:02:10.854Z"
+    },
+    {
+        "id": "bittrade",
+        "name": "BitTrade",
+        "type": "domestic",
+        "color": "#0055ff",
+        "iconClass": "fa-solid fa-chart-line",
+        "heroImage": "https://placehold.co/600x300/0055ff/ffffff?text=BitTrade+Banner&font=roboto",
+        "affiliateBannerHtml": "",
+        "bonusAmount": "3,500",
+        "unit": "円相当 BTC",
+        "description": "紹介コードからの登録＆条件達成で、最大3,500円分のビットコインがもらえる！",
+        "proTip": "口座開設だけで1,500円、販売所で5万円以上の取引で追加2,000円。",
+        "merits": [
+            "取扱い銘柄数が国内トップクラス",
+            "TradingViewが使えてチャート分析がしやすい",
+            "少額から積立投資ができる"
+        ],
+        "demerits": [
+            "販売所のスプレッドが広め",
+            "出金手数料がかかる"
+        ],
+        "steps": [
+            "紹介コード「vRzyi」を使って新規口座開設 (1,500円分)",
+            "本人確認（KYC）を完了する",
+            "販売所で5万円以上の取引をする (追加2,000円分)"
+        ],
+        "conditions": [
+            "紹介コードでの口座開設",
+            "5万円以上の取引(任意)"
+        ],
+        "affiliateLink": "https://www.bittrade.co.jp/ja-jp/register/?invite_code=vRzyi",
+        "referralCode": "vRzyi",
+        "isRecommended": false,
+        "tag": "銘柄豊富",
+        "lastChecked": "2026-02-18T09:43:00.000Z"
+    },
+    {
+        "id": "bitget",
+        "name": "Bitget",
+        "type": "overseas",
+        "color": "#00f0ff",
+        "iconClass": "fa-solid fa-arrow-trend-up",
+        "heroImage": "https://placehold.co/600x300/00f0ff/000000?text=Bitget+Banner&font=roboto",
+        "affiliateBannerHtml": "",
+        "bonusAmount": "1,500",
+        "unit": "USDT (ミステリーボックス)",
+        "description": "BTCエアドロップ＆最大1,500 USDTのミステリーボックスがもらえる！",
+        "proTip": "コピートレード機能が優秀。プロの真似をするだけで稼げるかも？",
+        "merits": [
+            "BTCエアドロップ＆ミステリーボックス獲得のチャンス",
+            "コピートレード機能が非常に充実している",
+            "キャンペーンの頻度が高く、特典が豪華"
+        ],
+        "demerits": [
+            "コピートレードにはリスクもある",
+            "出金手数料が通貨によっては高め"
+        ],
+        "steps": [
+            "紹介リンクから登録ページへ",
+            "紹介コード「PVWX1XND」が適用されているか確認",
+            "KYC完了・入金・取引で特典ゲット"
+        ],
+        "conditions": [
+            "紹介リンクから登録",
+            "KYC完了・入金・取引"
+        ],
+        "affiliateLink": "https://share.bitget.com/u/QUU1LQTT?clacCode=PVWX1XND",
+        "referralCode": "PVWX1XND",
+        "isRecommended": true,
+        "tag": "特典豪華",
+        "lastChecked": "2026-02-18T09:26:00.000Z"
+    },
+    {
+        "id": "worldcoin",
+        "name": "World App",
+        "type": "domestic",
+        "color": "#1f2937",
+        "iconClass": "fa-solid fa-earth-americas",
+        "heroImage": "https://placehold.co/600x300/1f2937/ffffff?text=WorldApp+Banner&font=roboto",
+        "affiliateBannerHtml": "",
+        "bonusAmount": "5,000~",
+        "unit": "円相当 + 招待ボーナス",
+        "description": "招待コード入力＆Orb認証で、約5,000円相当+招待ボーナスWLDがもらえる。",
+        "proTip": "認証前に招待コードを入力しないと、追加の招待ボーナスが貰えません！",
+        "merits": [
+            "無料で暗号資産WLDが定期的にもらえる",
+            "虹彩認証(Orb)だけで本人確認完了",
+            "将来的なAI時代のベーシックインカム"
+        ],
+        "demerits": [
+            "Orb(認証機)がある場所まで行く必要がある",
+            "WLDの価格変動リスクがある"
+        ],
+        "steps": [
+            "World Appをダウンロード",
+            "設定画面から招待コード「8EW99Z8」を入力",
+            "近くのOrb設置場所へ行き虹彩認証を完了する"
+        ],
+        "conditions": [
+            "World App招待コード入力",
+            "Orbでの虹彩認証完了"
+        ],
+        "affiliateLink": "https://worldcoin.org/join/8EW99Z8",
+        "referralCode": "8EW99Z8",
+        "isRecommended": true,
+        "tag": "無料配布",
+        "lastChecked": "2026-02-18T09:32:00.000Z"
+    }
+]
